@@ -180,6 +180,16 @@ msgstr ""
 msgid "Verify Password"
 msgstr "Проверка пароля"
 
+#: adminuseradd.php:97
+#: adminuserchange.php:172
+msgid "No outgoing"
+msgstr "Без отправки наружу"
+
+#: adminuseradd.php:101
+#: adminuserchange.php:180
+msgid "No incoming"
+msgstr "Без приема снаружи"
+
 #: adminaliasadd.php:74 adminaliaschange.php:114 adminuseradd.php:120
 #: adminuserchange.php:200 userchange.php:64 sitechange.php:107
 msgid "Anti-Virus"
@@ -594,7 +604,7 @@ msgstr "Пожалуйста, подтвердите удаление польз
 
 #: config/functions.php:122
 msgid "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-msgstr "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+msgstr "ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 
 #: config/functions.php:168
 msgid "The value of $cryptscheme is invalid!"

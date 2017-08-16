@@ -40,6 +40,16 @@
   } else {
     $_POST['admin'] = 0;
   }
+  if (isset($_POST['nooutgoing'])) {
+    $_POST['nooutgoing'] = 1;
+  } else {
+    $_POST['nooutgoing'] = 0;
+  }
+  if (isset($_POST['noincoming'])) {
+    $_POST['noincoming'] = 1;
+  } else {
+    $_POST['noincoming'] = 0;
+  }
   if (isset($_POST['enabled'])) {
     $_POST['enabled'] = 1;
   } else {
@@ -127,10 +137,11 @@
       die;
     }
     $query = "INSERT INTO users (`localpart`, `username`, `domain_id`, `crypt`,
-      `smtp`, `pop`, `uid`, `gid`, `realname`, `type`, `admin`, `on_avscan`, `on_piped`,
-      `on_spamassassin`, `sa_tag`, `sa_refuse`, `spam_drop`, `maxmsgsize`, `enabled`, `quota`)
+      `smtp`, `pop`, `uid`, `gid`, `realname`, `nooutgoing`, `noincoming`,
+      `type`, `admin`, `on_avscan`, `on_piped`, `on_spamassassin`, `sa_tag`, `sa_refuse`,
+      `spam_drop`, `maxmsgsize`, `enabled`, `quota`)
       VALUES (:localpart, :username, :domain_id, :crypt, :smtp, :pop, :uid, :gid,
-      :realname, :type, :admin, :on_avscan, :on_piped, :on_spamassassin,
+      :realname, :nooutgoing, :noincoming, :type, :admin, :on_avscan, :on_piped, :on_spamassassin,
       :sa_tag, :sa_refuse, :spam_drop, :maxmsgsize, :enabled, :quota)";
     $sth = $dbh->prepare($query);
     $success = $sth->execute(array(':localpart'=>$_POST['localpart'],
@@ -143,6 +154,7 @@
         ':uid'=>$_POST['uid'],
         ':gid'=>$_POST['gid'],
         ':realname'=>$_POST['realname'],
+        ':nooutgoing'=>$_POST['nooutgoing'], ':noincoming'=>$_POST['noincoming'],
         ':type'=>$_POST['type'],
         ':admin'=>$_POST['admin'],
         ':on_avscan'=>$_POST['on_avscan'],

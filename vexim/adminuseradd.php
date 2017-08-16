@@ -94,6 +94,14 @@
         </tr>
       <?php } ?>
         <tr>
+          <td><?php echo _('No outgoing'); ?></td>
+          <td colspan="2"><input name="nooutgoing" type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><?php echo _('No incoming'); ?></td>
+          <td colspan="2"><input name="noincoming" type="checkbox"></td>
+        </tr>
+        <tr>
           <td><?php echo _('Has domain admin privileges?'); ?></td>
           <td colspan="2"><input name="admin" type="checkbox"></td>
         </tr>

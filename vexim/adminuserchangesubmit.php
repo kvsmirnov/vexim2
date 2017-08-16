@@ -29,6 +29,16 @@
   } else {
     $_POST['admin'] = 0;
   }
+  if (isset($_POST['nooutgoing'])) {
+    $_POST['nooutgoing'] = 1;
+  } else {
+    $_POST['nooutgoing'] = 0;
+  }
+  if (isset($_POST['noincoming'])) {
+    $_POST['noincoming'] = 1;
+  } else {
+    $_POST['noincoming'] = 0;
+  }
   if (isset($_POST['on_forward']) && isset($_POST['forward']) && $_POST['forward']!=='') {
     $_POST['on_forward'] = 1;
     $forwardto=explode(",",$_POST['forward']);
@@ -173,6 +183,8 @@
   $query = "UPDATE users SET `uid`=:uid,
     `gid`=:gid, `smtp`=:smtp, `pop`=:pop,
     `realname`=:realname,
+    `nooutgoing`=:nooutgoing,
+    `noincoming`=:noincoming,
     `admin`=:admin,
     `on_avscan`=:on_avscan,
     `on_forward`=:on_forward,
@@ -193,6 +205,7 @@
   $sth = $dbh->prepare($query);
   $success = $sth->execute(array(':uid'=>$_POST['uid'], ':gid'=>$_POST['gid'],
     ':smtp'=>$smtphomepath, ':pop'=>$pophomepath, ':realname'=>$_POST['realname'],
+    ':nooutgoing'=>$_POST['nooutgoing'], ':noincoming'=>$_POST['noincoming'],
     ':admin'=>$_POST['admin'], ':on_avscan'=>$_POST['on_avscan'],
     ':on_forward'=>$_POST['on_forward'], ':on_piped'=>$_POST['on_piped'],
     ':on_spamassassin'=>$_POST['on_spamassassin'],

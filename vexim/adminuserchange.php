@@ -169,13 +169,28 @@
           }
         ?>
         <tr>
+          <td><?php echo _('No outgoing'); ?>:</td>
           <td>
-            <?php echo _('Admin'); ?>:</td>
-            <td>
+              <input name="nooutgoing" type="checkbox"<?php if ($row['nooutgoing'] == 1) { 
+                print " checked";
+              } ?> class="textfield">
+          </td>
+          </tr>
+        <tr>
+          <td><?php echo _('No incoming'); ?>:</td>
+          <td>
+              <input name="noincoming" type="checkbox"<?php if ($row['noincoming'] == 1) { 
+                print " checked";
+              } ?> class="textfield">
+          </td>
+          </tr>
+        <tr>
+          <td><?php echo _('Admin'); ?>:</td>
+          <td>
               <input name="admin" type="checkbox"<?php if ($row['admin'] == 1) { 
                 print " checked";
               } ?> class="textfield">
-            </td>
+          </td>
           </tr>
         <?php
           if ($domrow['avscan'] == "1") {

@@ -78,7 +78,7 @@
     $query = "INSERT INTO users
       (`localpart`, `username`, `domain_id`, `crypt`, `smtp`, `pop`, `uid`, `gid`, `realname`, `type`, `admin`, `on_avscan`,
        `on_spamassassin`, `sa_tag`, `sa_refuse`, `spam_drop`, `enabled`)
-      SELECT :localpart, :username, :domain_id, :crypt, :smtp, :pop, `uid`, `gid`, :realname, `alias`, :admin,
+      SELECT :localpart, :username, :domain_id, :crypt, :smtp, :pop, `uid`, `gid`, :realname, 'alias', :admin,
       :on_avscan, :on_spamassassin, :sa_tag, :sa_refuse, :spam_drop, :enabled
       FROM domains
       WHERE domains.domain_id=:domain_id";
